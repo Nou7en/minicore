@@ -36,4 +36,28 @@ Este proyecto es una aplicación web desarrollada con **Next.js** que permite fi
 ### 1. **Clonar el Repositorio**
 ```bash
 git clone https://github.com/Nou7en/minicore
-cd minicore
+cd minicore ```
+
+### 2. Instalar Dependencias
+```bash
+npm install
+### 3. Configurar la Base de Datos
+1. Asegúrate de que MySQL está instalado y en ejecución.
+2. Crea una base de datos llamada minicore
+```bash
+CREATE DATABASE nextjs_expenses;
+### 3. Actualiza el archivo .env en la raíz del proyecto con tu configuración de conexión a MySQL
+```bash
+DATABASE_URL="mysql://usuario:contraseña@localhost:3306/minicore"
+### 4. Inicializar Prisma
+1. Ejecuta las migraciones para crear las tablas en la base de datos:
+```bash
+npx prisma migrate dev --name init
+### 5. Poblar la Base de Datos
+1. Usa el script de seed para insertar datos iniciales en la base de datos
+```bash
+node prisma/seed.js
+### 6. Iniciar el Servidor
+1. Ejecuta el servidor en modo desarrollo
+```bash
+npm run dev
